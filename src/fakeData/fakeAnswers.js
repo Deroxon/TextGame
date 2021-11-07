@@ -7,6 +7,7 @@ let fakeAnswers= [
             stats: {hp: 0, att: 1, def: 0, coin: 0},
             storyline: "You choosed Sword which one is making you stronger, you get 1 attack point",
             condition: "hp1",
+            penalty: {hp: 0, att: 0, def: 0, coin: 0},
             checkDec: ''
         },
         B: {
@@ -14,6 +15,7 @@ let fakeAnswers= [
             stats: {hp: 0, att: 0, def: 1, coin: 0},
             storyline: "You choosed helmet which one is making you safer, you get 1 deffense point",
             condition: "hp1",
+            penalty:  {hp: 0, att: 0, def: 0, coin: 0},
             checkDec: ''
         },
 
@@ -22,6 +24,7 @@ let fakeAnswers= [
             stats: {hp: 0, att: 0, def: 1, coin: 0},
             storyline: "You choosed shield which one is making you safer, you get 1 deffense point",
             condition: "hp1",
+            penalty:  {hp: 0, att: 0, def: 0, coin: 0},
             checkDec: ''
         },
         result: ''
