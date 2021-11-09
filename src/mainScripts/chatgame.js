@@ -6,8 +6,11 @@ import fakeAnswers from "../fakeData/fakeAnswers"
 function ChatGame() {
 
     const [story, setStory] = useState('');
+    const [decResultText, setResultText] = useState('') 
     const [answers, setAnswers] = useState({A: '', B: '', C: ''})
     const [game, setGame] = useState();
+    const [actualStory, CountStory] = useState(0);
+    const [alert, setAlert] = useState("alert");
     const [hero, setHeroStats] = useState({stats: {
         attack: 1,
         deffense: 1,
@@ -15,10 +18,6 @@ function ChatGame() {
         coin: 3, 
     }, 
     backpack : [], 
-
-    decisions: {
-
-    }
     })
 
     // mount first story, answers and game options
@@ -29,19 +28,27 @@ function ChatGame() {
     },[] )
 
   
-
+    // param A,B,C
     function makeDecision(param) {
 
         let condition = false;
         
         // decision A, B, C checking condition if its true upgrade hero, and if false hero need to take punish 
-        
+
         if(param === 'A') {
+            // checking condition if the player fullfill it
             if(checkCondition(game.A.condition)) {
+                // upgrade hero if yes
                 upgradeHero(game.A.stats);
             } else {
+                // punish, if there is any punish
                 punishHero(param)
             }
+            checkiFDecision(param) // A
+
+          
+        
+            setAlert(game.A.storyline);
 
         } 
         
@@ -52,6 +59,8 @@ function ChatGame() {
             } else {
                 punishHero(param)
             }
+           
+            setAlert(game.B.storyline);
 
         }
 
@@ -62,8 +71,13 @@ function ChatGame() {
             } else {
                 punishHero(param)
             }
+
+            setAlert(game.C.storyline);
          
         }
+        // setting result of player answer and making new story
+        fakeAnswers[actualStory].result = param;
+        nextStory();
 
     }
 
@@ -132,9 +146,7 @@ function ChatGame() {
 
     }
 
-    function checkDecision() {
 
-    }
 
     function upgradeHero(...param) {
 
@@ -147,7 +159,7 @@ function ChatGame() {
         
         // setting new values to hero
         setHeroStats({stats: {
-            attack: newAttack, 
+            attack:  newAttack, 
             deffense: newDeffense, 
             healthPoints: newHealthPoints, 
             coin: newCoin
@@ -159,21 +171,135 @@ function ChatGame() {
 
     }
 
- 
+    function checkiFDecision(param) {
+
+        if(param === "A") {
+            if(game.A.checkDec === '') {
+                return false
+            }
+            else { // if there is anything in checkDec
+                checkDecision(game.A.checkDec, "A" );
+            }
+        }
+
+        else if (param === "B") {
+            if(game.B.checkDec === ''){
+                return false;
+            } 
+            else {
+                checkDecision(game.B.checkDec, "B");
+            }
+        }
+
+        else if (param === "C") {
+            if(game.C.checkDec === ''){
+                return false;
+            } 
+            else {
+                checkDecision(game.C.checkDec, "B");
+            }
+        }
+        
+
+    }
+
+
+    function checkDecision(checkdec, ans) {
+
+        // example '2' 
+        console.log(checkdec)
+        checkdec = Number(checkdec);
+
+        // result of second story choosed
+        let grabdecisionofStory = fakeAnswers[checkdec].result // example 'B'
+        console.log(grabdecisionofStory)
+
+        // choosing which one answer decResult i should choose
+        let choosedAnswer;
+
+        if(ans === 'A') {
+            choosedAnswer = game.A;
+        }
+        else if (ans=== 'B') {
+            choosedAnswer = game.B;
+        }
+
+        else if (ans === 'C') {
+            choosedAnswer = game.C;
+        }
+
+        // displaying choosedAnswerResult and doing it
+            if(grabdecisionofStory === "A") {
+                setResultText(choosedAnswer.decResultAtextline)
+            }
+            else if (grabdecisionofStory === "B") {
+                setResultText(choosedAnswer.decResultBtextline)
+            }
+            else if (grabdecisionofStory === "C") {
+                setResultText(choosedAnswer.decResultCtextline)
+            }
+            
+
+        
+
+
+            
+
+        
+    }
+
+
+    function nextStory() {
+
+        
+
+        // setting game  and count story
+        setGame(fakeAnswers[actualStory + 1]);
+        CountStory(actualStory+1);
+
+        // setting answers of the next part of story
+        setAnswers({
+            A: fakeAnswers[actualStory +1].A.content,
+            B: fakeAnswers[actualStory +1].B.content, 
+            C: fakeAnswers[actualStory +1].C.content, 
+        })
+        
+        // set story
+        setStory(fakeAnswers[actualStory +1].story)
+        
+    }
+
+    
+    // 1. Make punish system with const penalty or temporary
+    // 2. Think how decision would work
+    // 3. Make prettier css styles
+    // 4. checkDecision function
+    // 5. write more stories
+    // 6. more RWD
+    // 7. function which one taking u to next story in mainLine
+
+
 
     return (
         <div>
             <main>
                 
 
-                    <div className="communicate">alert</div>  
+                    <div className="communicate">{alert}</div>  
                     
                     <div className="stats">{"att:"+hero.stats.attack} {"def:"+hero.stats.deffense}, {"coin:"+hero.stats.coin},{"hp:"+hero.stats.healthPoints}</div>
                     
                 
                 
 
-                <div className="story">{story}</div>
+                <div className="story">
+
+                <p> {decResultText} </p> 
+
+                    {story}
+
+      
+                </div>
         
                 <div className="answers">answers
                     <ul>

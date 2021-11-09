@@ -1,0 +1,67 @@
+
+
+
+
+Project Works:
+
+
+1.Importing fakeAnswers | 1-2 lines
+2. Mounting first story, answers, and setting game // 24-28
+3.Including all HTML to visual look for user // 283 - 318
+4.User is clicking on of li choosing what to do, and starting function makeDecision() with parametres from A - C
+5.MakeDecision have if else statement and checking wchich paramet goes and next:
+I: running checkCondition function with parametr game.A.condition // condition looks like at4 or hp1
+
+-checkCondition is taking for 2 variables first two letters for example 'hp' (takeWhat) and from 2 to 5 last letters like '1' (takeCon)
+-Making takeCon ('1') on Number
+-Destruction heroStats for make it simpler
+-switch statement for takeWhat checking if any of stats is bigger than takeCon (condition), if yes return true, if no return false
+
+II: after checking condition if return true we use Function upgradeHero(game.A.stats)  if not punishHero()
+
+upgradeHero():
+
+is taking a stats from story what hero should get and take previos stats and sum it,
+next we starting Hooks setHeroStats() and creating new stats for hero
+
+punishHero():
+
+// need to write more //
+
+III using function checkiFDecision(param) param is like "A", "B" or "C"
+
+A) this function is checking if this Answer like "A" has a someotherValue than '' empty strings.
+If does it launch function checkDecision with parametr which one story is substitute to right like 'fakeAnswers[2]' story with example "A"
+
+B) checkDecision:
+
+- let checkedc is checking number of story with connection
+- let grabdecisionStory is taking result of connected story
+
+- declare of let choosedAnswer
+checking which one game shold i take for example game.Answer
+
+and next checking what grabdecisionStory from that decision and next decide what to display by Hook setResultText()
+
+i shall implement upgradeHero or punish now, cause of connection
+
+
+
+
+IV: after checking condition we setAlert() right to answers like setAlert(game.C.storyline) storyline looks like: 
+
+"you choosed sword, but it was bad choice"
+
+
+V: Setting to this story actual result like "A" or "B" or "C" to checkingDecision
+for game.result or same like fakeAnswers[int].result
+
+
+
+VI: using Function nextStory which one is:
+
+-using hooks and setGame for the next story
+-CountStory counting +1 each time
+-setting new Answers from next story
+-setting new story to display
+
