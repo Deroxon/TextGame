@@ -6,22 +6,28 @@ let fakeAnswers= [
             content: 'sword',
             stats: {hp: 0, att: 1, def: 0, coin: 0},
             storyline: "You choosed Sword which one is making you stronger, you get 1 attack point",
-            condition: "hp1", // hp 1 if yes + if no there is nothing
+            condition: "hp0", // hp 1 if yes + if no there is nothing
             penalty: {hp: 0, att: 0, def: 0, coin: 0}, // penalty
             
             checkDec: '', // checking story of decision in act for example 5
 
-            decCondtionA: '', // condition to make
-            decResultA: '', // stats to make or make to future history
+            decConditionA: '', // condition to make
+            decResultA: {hp: 0, att: 0, def: 0, coin: 0},// stats to make or make to future history
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0}, 
             decResultAtextline: '', // textline to decisione maked
+            decFalseResultATextline: '',
 
-            decCondtionB: '',
-            decResultB: '',
+            decConditionB: '',
+            decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
             decResultBtextline: '',
+            decFalseResultBTextline: '',
 
-            decCondtionC: '',
-            decResultC: '',
+            decConditionC: '',
+            decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
             decResultCtextline: '',
+            decFalseResultCTextline: '',
         },
         B: {
             content: 'armor',
@@ -31,17 +37,23 @@ let fakeAnswers= [
             penalty:  {hp: 0, att: 0, def: 0, coin: 0},
             checkDec: '', // checking story of decision in act for example 5
 
-            decCondtionA: '', // condition to make
-            decResultA: '', // stats to make or make to future history
-            decResultAtextline: '', // textline to decisione maked
+            decConditionA: '', // condition to make
+            decResultA: {hp: 0, att: 0, def: 0, coin: 0}, // stats to make or make to future history
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+            decResultAtextline: '',
+            decFalseResultATextline: '', // textline to decisione maked
 
-            decCondtionB: '',
-            decResultB: '',
+            decConditionB: '',
+            decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
             decResultBtextline: '',
+            decFalseResultBTextline: '',
 
-            decCondtionC: '',
-            decResultC: '',
+            decConditionC: '',
+            decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
             decResultCtextline: '',
+            decFalseResultCTextline: '',
         },
 
         C: {
@@ -52,17 +64,23 @@ let fakeAnswers= [
             penalty:  {hp: 0, att: 0, def: 0, coin: 0},
             checkDec: '',
 
-            decCondtionA: '', 
-            decResultA: '',
-            decResultAtextline: '', 
+            decConditionA: '', 
+            decResultA: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+            decResultAtextline: '',
+            decFalseResultATextline: '', 
 
-            decCondtionB: '',
-            decResultB: '',
+            decConditionB: '',
+            decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
             decResultBtextline: '',
+            decFalseResultBTextline: '',
 
-            decCondtionC: '',
-            decResultC: '',
+            decConditionC: '',
+            decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
             decResultCtextline: '',
+            decFalseResultCTextline: '',
         },
         result: ''
     },
@@ -74,44 +92,56 @@ let fakeAnswers= [
         A: {
             content: 'Right',
             stats: {hp: 0, att: 0, def: 0, coin: 1},
-            storyline: "when u went right u find coin covered with blood, there become scary and in ur way u see giant Snake coming to u, unforuanetly you have not time to reaction and snake bites u, he was no posioneus and u walk forward",
+            storyline: "when u went right u find coin covered with blood, there become scary and in ur way u see giant Snake coming to u, unforuanetly you have not time to reaction and snake bites, he was no posioneus and u walk forward",
             condition: "at4", // hp 1 if yes + if no there is nothing
             penalty: {hp: -1, att: 0, def: 0, coin: 0}, // penalty
             
             checkDec: '0', // checking story of decision in act for example 5
 
-            decCondtionA: 'hp0', // condition to make
-            decResultA: {hp: 0, att: 0, def: 0, coin: 0}, // stats to make or make to future history
-            decResultAtextline: 'U pick sword in ur hands but unforunatly is not helping u cause the snake was too fast', // textline to decisione maked
+            decConditionA: 'at4', // condition to make
+            decResultA: {hp: 1, att: 0, def: 0, coin: 0}, // stats to make or make to future history
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+            decResultAtextline: 'U pick sword in ur hands and deffense yourself of the giant snake', // textline to decisione maked
+            decFalseResultATextline: 'Snake was too strong and too fast for you, you lost even with the sword',
 
-            decCondtionB: 'def2',
+            decConditionB: 'de2',
             decResultB: {hp: 1, att: 0, def: 0, coin: 0},
-            decResultBtextline: 'The armor is protecting you of damage',
+            decFalseResultB: {hp: 0, att: 0, def: 0, coin: 0},
+            decResultBtextline: 'The armor is protecting you of damage and you could runaway',
+            decFalseResultBTextline: 'Armor is not protecting u of the damage',
 
-            decCondtionC: 'def2',
-            decResultC: {hp: 1, att: 0, def: -1, coin: 0},
-            decResultCtextline: 'Shield is protecting you of damage, but snake pulls out your shield when u need to run. You just lost 1 deffense',
+            decConditionC: 'de2',
+            decResultC: {hp: 1, att: 0, def: 0, coin: 0},
+            decFalseResultC: {hp: 1, att: 0, def: -1, coin: 0},
+            decResultCtextline: 'Shield is protecting you of damage, and you can runaway',
+            decFalseResultCTextline: "Shield is protecting you from the damage but the snake pulls it out and you lose your shield. You lost 1 deffense"
         },
         B: {
             content: 'Center',
-            stats: {hp: 0, att: 0, def: 1, coin: 0},
+            stats: {hp: 0, att: 0, def: 0, coin: 1},
             storyline: "You went center and find small goblin with coin, goblin runaway from u and dropped coin which one u lift it",
             condition: "hp1",
             penalty:  {hp: 0, att: 0, def: 0, coin: 0},
             checkDec: '',
             decParametrs: '',
 
-            decCondtionA: '', 
-            decResultA: '',
-            decResultAtextline: '', 
+            decConditionA: '', 
+            decResultA: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+            decResultAtextline: '',
+            decFalseResultATextline: '' ,
 
-            decCondtionB: '',
-            decResultB: '',
+            decConditionB: '',
+            decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultB: {hp: 0, att: 0, def: 0, coin: 0},
             decResultBtextline: '',
+            decFalseResultBTextline: '',
 
-            decCondtionC: '',
-            decResultC: '',
+            decConditionC: '',
+            decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultC: {hp: 0, att: 0, def: 0, coin: 0},
             decResultCtextline: '',
+            decFalseResultCTextline: '',
         },
 
         C: {
@@ -123,89 +153,198 @@ let fakeAnswers= [
             checkDec: '',
             decParametrs: '',
 
-            decCondtionA: '', 
-            decResultA: '',
+            decConditionA: '', 
+            decResultA: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
             decResultAtextline: '', 
+            decFalseResultATextline: '',
 
-            decCondtionB: '',
-            decResultB: '',
+            decConditionB: '',
+            decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultB: {hp: 0, att: 0, def: 0, coin: 0},
             decResultBtextline: '',
+            decFalseResultBTextline: '',
 
-            decCondtionC: '',
-            decResultC: '',
+            decConditionC: '',
+            decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+            decFalseResultC: {hp: 0, att: 0, def: 0, coin: 0},
             decResultCtextline: '',
+            decFalseResultCTextline: '',
         },
         result: ''
     },
 ////////////////////////////////////////////////////////////////////////////////
-    {
-        story: "You woke up in small village named Opros, in the Kingdom of Renor. You came from poor family, but recently in the kingdom there are increased attacks from monsters, you decide to change something in ur life and go to dangerously adventure, your friend the blacksmith offer you one item which one could help you. Choose Wisely",
+{
+    story: "You woke up in small village named Opros, in the Kingdom of Renor. You came from poor family, but recently in the kingdom there are increased attacks from monsters, you decide to change something in ur life and go to dangerously adventure, your friend the blacksmith offer you one item which one could help you. Choose Wisely",
 
-        A: {
-            content: 'sword',
-            stats: {hp: 0, att: 1, def: 0, coin: 0},
-            storyline: "You choosed Sword which one is making you stronger, you get 1 attack point",
-            condition: "hp1", // hp 1 if yes + if no there is nothing
-            penalty: {hp: 0, att: 0, def: 0, coin: 0}, // penalty
-            
-            checkDec: '', // checking story of decision in act for example 5
+    A: {
+        content: 'sword',
+        stats: {hp: 0, att: 1, def: 0, coin: 0},
+        storyline: "You choosed Sword which one is making you stronger, you get 1 attack point",
+        condition: "hp1", // hp 1 if yes + if no there is nothing
+        penalty: {hp: 0, att: 0, def: 0, coin: 0}, // penalty
+        
+        checkDec: '', // checking story of decision in act for example 5
 
-            decCondtionA: '', // condition to make
-            decResultA: '', // stats to make or make to future history
-            decResultAtextline: '', // textline to decisione maked
+        decConditionA: '', // condition to make
+        decResultA: {hp: 0, att: 0, def: 0, coin: 0},// stats to make or make to future history
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0}, 
+        decResultAtextline: '', // textline to decisione maked
+        decFalseResultATextline: '',
 
-            decCondtionB: '',
-            decResultB: '',
-            decResultBtextline: '',
+        decConditionB: '',
+        decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultBtextline: '',
+        decFalseResultBTextline: '',
 
-            decCondtionC: '',
-            decResultC: '',
-            decResultCtextline: '',
-        },
-        B: {
-            content: 'armor',
-            stats: {hp: 0, att: 0, def: 1, coin: 0},
-            storyline: "You choosed armor which one is making you safer, you get 1 deffense point",
-            condition: "hp1",
-            penalty:  {hp: 0, att: 0, def: 0, coin: 0},
-            checkDec: '', // checking story of decision in act for example 5
+        decConditionC: '',
+        decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultCtextline: '',
+        decFalseResultCTextline: '',
+    },
+    B: {
+        content: 'armor',
+        stats: {hp: 0, att: 0, def: 1, coin: 0},
+        storyline: "You choosed armor which one is making you safer, you get 1 deffense point",
+        condition: "hp1",
+        penalty:  {hp: 0, att: 0, def: 0, coin: 0},
+        checkDec: '', // checking story of decision in act for example 5
 
-            decCondtionA: '', // condition to make
-            decResultA: '', // stats to make or make to future history
-            decResultAtextline: '', // textline to decisione maked
+        decConditionA: '', // condition to make
+        decResultA: {hp: 0, att: 0, def: 0, coin: 0}, // stats to make or make to future history
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultAtextline: '',
+        decFalseResultATextline: '', // textline to decisione maked
 
-            decCondtionB: '',
-            decResultB: '',
-            decResultBtextline: '',
+        decConditionB: '',
+        decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultBtextline: '',
+        decFalseResultBTextline: '',
 
-            decCondtionC: '',
-            decResultC: '',
-            decResultCtextline: '',
-        },
-
-        C: {
-            content: 'shield',
-            stats: {hp: 0, att: 0, def: 1, coin: 0},
-            storyline: "You choosed shield which one is making you safer, you get 1 deffense point",
-            condition: "hp1",
-            penalty:  {hp: 0, att: 0, def: 0, coin: 0},
-            checkDec: '',
-
-            decCondtionA: '', 
-            decResultA: '',
-            decResultAtextline: '', 
-
-            decCondtionB: '',
-            decResultB: '',
-            decResultBtextline: '',
-
-            decCondtionC: '',
-            decResultC: '',
-            decResultCtextline: '',
-        },
-        result: ''
+        decConditionC: '',
+        decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultCtextline: '',
+        decFalseResultCTextline: '',
     },
 
+    C: {
+        content: 'shield',
+        stats: {hp: 0, att: 0, def: 1, coin: 0},
+        storyline: "You choosed shield which one is making you safer, you get 1 deffense point",
+        condition: "hp1",
+        penalty:  {hp: 0, att: 0, def: 0, coin: 0},
+        checkDec: '',
+
+        decConditionA: '', 
+        decResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultAtextline: '',
+        decFalseResultATextline: '', 
+
+        decConditionB: '',
+        decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultBtextline: '',
+        decFalseResultBTextline: '',
+
+        decConditionC: '',
+        decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultCtextline: '',
+        decFalseResultCTextline: '',
+    },
+    result: ''
+},
+
+{
+    story: "You woke up in small village named Opros, in the Kingdom of Renor. You came from poor family, but recently in the kingdom there are increased attacks from monsters, you decide to change something in ur life and go to dangerously adventure, your friend the blacksmith offer you one item which one could help you. Choose Wisely",
+
+    A: {
+        content: 'sword',
+        stats: {hp: 0, att: 1, def: 0, coin: 0},
+        storyline: "You choosed Sword which one is making you stronger, you get 1 attack point",
+        condition: "hp1", // hp 1 if yes + if no there is nothing
+        penalty: {hp: 0, att: 0, def: 0, coin: 0}, // penalty
+        
+        checkDec: '', // checking story of decision in act for example 5
+
+        decConditionA: '', // condition to make
+        decResultA: {hp: 0, att: 0, def: 0, coin: 0},// stats to make or make to future history
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0}, 
+        decResultAtextline: '', // textline to decisione maked
+        decFalseResultATextline: '',
+
+        decConditionB: '',
+        decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultBtextline: '',
+        decFalseResultBTextline: '',
+
+        decConditionC: '',
+        decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultCtextline: '',
+        decFalseResultCTextline: '',
+    },
+    B: {
+        content: 'armor',
+        stats: {hp: 0, att: 0, def: 1, coin: 0},
+        storyline: "You choosed armor which one is making you safer, you get 1 deffense point",
+        condition: "hp1",
+        penalty:  {hp: 0, att: 0, def: 0, coin: 0},
+        checkDec: '', // checking story of decision in act for example 5
+
+        decConditionA: '', // condition to make
+        decResultA: {hp: 0, att: 0, def: 0, coin: 0}, // stats to make or make to future history
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultAtextline: '',
+        decFalseResultATextline: '', // textline to decisione maked
+
+        decConditionB: '',
+        decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultBtextline: '',
+        decFalseResultBTextline: '',
+
+        decConditionC: '',
+        decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultCtextline: '',
+        decFalseResultCTextline: '',
+    },
+
+    C: {
+        content: 'shield',
+        stats: {hp: 0, att: 0, def: 1, coin: 0},
+        storyline: "You choosed shield which one is making you safer, you get 1 deffense point",
+        condition: "hp1",
+        penalty:  {hp: 0, att: 0, def: 0, coin: 0},
+        checkDec: '',
+
+        decConditionA: '', 
+        decResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultAtextline: '',
+        decFalseResultATextline: '', 
+
+        decConditionB: '',
+        decResultB: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultBtextline: '',
+        decFalseResultBTextline: '',
+
+        decConditionC: '',
+        decResultC: {hp: 0, att: 0, def: 0, coin: 0},
+        decFalseResultA: {hp: 0, att: 0, def: 0, coin: 0},
+        decResultCtextline: '',
+        decFalseResultCTextline: '',
+    },
+    result: ''
+},
 
 
     [

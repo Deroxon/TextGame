@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Genos:ital@1&display=swap');
 main {
   width: 90vw;
   margin-left: auto;
@@ -10,22 +12,37 @@ main {
 .communicate {
   grid-column-start: 4;
   grid-column-end: 8;
-  border:1px black solid;
-  margin-top:30px;
+  position: relative;
+  padding-top: 10px;
   min-height:40px;
+  background: url('./burned.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size:16px;
+  font-family: 'MedievalSharp', cursive;
+  text-shadow: 0.5px 0.5px 0.5px rgb(168, 162, 162);
 }
 .stats {
-  grid-column-start: 8;
+  grid-column-start: 9;
   grid-column-end: 11;
-  
+  font-family: 'MedievalSharp', cursive;
 }
 .story {
   grid-column-start: 3;
   grid-column-end: 9;
   text-align: center;
   min-height:400px;
- 
-
+  font-family: 'MedievalSharp', cursive;
+  font-size:25px;
+  background: url('./burned.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  color:rgb(32, 29, 29);
+  text-shadow: 0.5px 0.5px 0.5px rgb(168, 162, 162);
+}
+.story p {
+  margin-top: 30px;
 }
 .answers {
   grid-column-start: 3;
@@ -45,4 +62,118 @@ main {
  padding: 5px;
  width:33%;
  text-align: center;
+ background: radial-gradient( rgb(224, 223, 112), rgb(212, 188, 77), rgb(219, 143, 29) );
+ cursor: pointer;
+ border:0.5px solid rgba(117, 111, 111, 0.8);
+ font-size:25px;
+ font-family: 'Genos', sans-serif;
+ 
  }
+
+
+ /* React Icons */
+ .icon {
+    font-size: 30px;
+    padding-top:10px;
+    position: relative;
+    top:10px
+ }
+
+
+
+
+
+ @media screen and (max-width: 1102px) {
+    .story p {
+      font-size:22px;
+    }
+    .communicate {
+      font-size:14px;
+    }
+    .stats {
+      grid-column-start: 8;
+      grid-column-end: 11;
+    }
+    .answers ul li {
+      font-size:20px;
+    }
+ }
+
+ @media screen and (max-width: 702px) {
+  .story p {
+    font-size:15px;
+  }
+  .communicate {
+    grid-column-start: 3;
+    grid-column-end: 9;
+    border: none;
+    border-radius:5px;
+    background-size: 100% 100%;
+    margin-top:20px;
+    font-size:12px;
+  }
+  .stats {
+    grid-column-start: 8;
+    grid-column-end: 11;
+    font-size:15px;
+  }
+  .icon {
+    font-size:27px
+  }
+  .answers ul li {
+    font-size:18px;
+  }
+
+ }
+
+ @media screen and (max-width: 542px) {
+
+    .story p {
+      font-size:13px;
+    }
+    .story {
+      grid-column-start: 1;
+      grid-column-end: 11;
+    }
+    .communicate {
+      grid-column-start: 1;
+      grid-column-end: 11;
+      border: none;
+      border-radius:5px;
+      background-size: 100% 100%;
+      margin-top:20px;
+      font-size:12px;
+    }
+    .stats {
+      grid-column-start: 6;
+      grid-column-end: 11;
+      font-size:15px;
+    }
+    .icon {
+      font-size:27px
+    }
+    .answers ul li {
+      font-size:17px;
+    }
+    .answers {
+      grid-column-start: 1;
+      grid-column-end: 11;
+    }
+
+
+ }
+
+ @media screen and (max-width: 350px) {
+  .answers ul li {
+    font-size:14px;
+  }
+  .stats {
+    grid-column-start: 3;
+    grid-column-end: 11;
+    font-size:15px;
+  }
+
+
+ }
+
+ /* Animation */

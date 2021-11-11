@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import fakeAnswers from "../fakeData/fakeAnswers"
-
+import {GiTwoCoins, GiBroadsword, GiShield, GiHearts} from "react-icons/gi";
+import { IconContext } from "react-icons";
 
 
 function ChatGame() {
@@ -11,6 +12,7 @@ function ChatGame() {
     const [game, setGame] = useState();
     const [actualStory, CountStory] = useState(0);
     const [alert, setAlert] = useState("alert");
+    const [upgrades, setUpgrades] = useState([]);
     const [hero, setHeroStats] = useState({stats: {
         attack: 1,
         deffense: 1,
@@ -20,6 +22,8 @@ function ChatGame() {
     backpack : [], 
     })
 
+   
+
     // mount first story, answers and game options
     useEffect( ()=> {
         setStory(fakeAnswers[0].story);
@@ -27,26 +31,39 @@ function ChatGame() {
         setGame(fakeAnswers[0]);
     },[] )
 
+
+    useEffect( () => {
+        // if we go to nextStory we sum Heroes stats and display it
+        sumHeroUpgrades();
+    }, [actualStory])
+
+
+ 
+
   
     // param A,B,C
     function makeDecision(param) {
-
+        console.error('makeDecision')
         let condition = false;
-        
+       
         // decision A, B, C checking condition if its true upgrade hero, and if false hero need to take punish 
 
         if(param === 'A') {
             // checking condition if the player fullfill it
+            
             if(checkCondition(game.A.condition)) {
                 // upgrade hero if yes
+                console.log('upgrading A hero')
                 upgradeHero(game.A.stats);
             } else {
                 // punish, if there is any punish
-                punishHero(param)
+                console.log(game.A.penalty)
+                upgradeHero(game.A.penalty)
+                console.log('use penalty')
             }
             checkiFDecision(param) // A
 
-          
+           
         
             setAlert(game.A.storyline);
 
@@ -57,8 +74,12 @@ function ChatGame() {
             if(checkCondition(game.B.condition)) {
                 upgradeHero(game.B.stats);
             } else {
-                punishHero(param)
+                upgradeHero(game.B.penalty)
+                console.log('use penalty')
             }
+            checkiFDecision(param) 
+
+           
            
             setAlert(game.B.storyline);
 
@@ -69,8 +90,12 @@ function ChatGame() {
             if(checkCondition(game.C.condition)) {
                 upgradeHero(game.C.stats);
             } else {
-                punishHero(param)
+                console.log('use penalty')
+                upgradeHero(game.C.penalty)
             }
+            checkiFDecision(param) 
+
+
 
             setAlert(game.C.storyline);
          
@@ -83,6 +108,7 @@ function ChatGame() {
 
     // decision to think
     function checkCondition(condition) {
+        console.error('checkCondition')
 
         console.log(condition);
         // attribute
@@ -90,6 +116,7 @@ function ChatGame() {
         // value
         let takeCon = condition.slice(2,5);
         takeCon = Number(takeCon);
+        
 
         // destrukturyzacja w obiekcie hero, obiektu stats
         let {healthPoints, attack, deffense, coins } = hero.stats;
@@ -110,13 +137,14 @@ function ChatGame() {
                 if(attack >= takeCon) {
                     return true;
                 } else {
+                    console.log('nie zwracam')
                     return false;
                 }
             }
             break;
 
             //deffens
-            case 'def': {
+            case 'de': {
                 if(deffense >= takeCon) {
                     return true;
                 } else {
@@ -147,31 +175,44 @@ function ChatGame() {
     }
 
 
+    function sumHeroUpgrades() {
 
-    function upgradeHero(...param) {
+        console.error("sum hero Updates")
 
-        console.log(param[0])
-        // setting variables which one making new values in heros stats
-        let newAttack = param[0].att + hero.stats.attack;
-        let newDeffense = param[0].def + hero.stats.deffense;
-        let newHealthPoints = param[0].hp + hero.stats.healthPoints;
-        let newCoin= param[0].coin + hero.stats.coin;
+        let sumAttack = hero.stats.attack;
+        let sumDeffense = hero.stats.deffense;
+        let sumHealthPoints = hero.stats.healthPoints;
+        let sumCoins= hero.stats.coin;
+
+        for(let i= 0; i<upgrades.length; i++) {
+            sumAttack = sumAttack +upgrades[i].att
+            sumDeffense = sumDeffense + upgrades[i].def
+            sumHealthPoints = sumHealthPoints + upgrades[i].hp
+            sumCoins = sumCoins + upgrades[i].coin
+        }
+
         
+        
+        /// PROBLEM IS THE OVERWRITING VALUES
         // setting new values to hero
         setHeroStats({stats: {
-            attack:  newAttack, 
-            deffense: newDeffense, 
-            healthPoints: newHealthPoints, 
-            coin: newCoin
+            attack: sumAttack, 
+            deffense: sumDeffense, 
+            healthPoints: sumHealthPoints, 
+            coin: sumCoins
         }})
 
-        
     }
-    function punishHero(param) {
 
+
+
+    function upgradeHero(...param) {
+        setUpgrades(upgrades => [...upgrades, param[0] ]);
     }
+    
 
     function checkiFDecision(param) {
+        console.error('checkIfDecision')
 
         if(param === "A") {
             if(game.A.checkDec === '') {
@@ -205,7 +246,7 @@ function ChatGame() {
 
 
     function checkDecision(checkdec, ans) {
-
+        console.error('checkDecision')
         // example '2' 
         console.log(checkdec)
         checkdec = Number(checkdec);
@@ -216,7 +257,6 @@ function ChatGame() {
 
         // choosing which one answer decResult i should choose
         let choosedAnswer;
-
         if(ans === 'A') {
             choosedAnswer = game.A;
         }
@@ -228,16 +268,56 @@ function ChatGame() {
             choosedAnswer = game.C;
         }
 
-        // displaying choosedAnswerResult and doing it
+        // displaying choosedAnswerResult and upgrading hero if the hero is making condition or upgrade him like penalty if dont
+        
             if(grabdecisionofStory === "A") {
-                setResultText(choosedAnswer.decResultAtextline)
+
+                    if(checkCondition(choosedAnswer.decConditionA) ) {
+                        upgradeHero(choosedAnswer.decResultA)
+                        setResultText(choosedAnswer.decResultAtextline)
+                    }
+                    else {
+                        upgradeHero(choosedAnswer.decFalseResultA)
+                        setResultText(choosedAnswer.decFalseResultATextline)
+                    }
+
+                    
+                   
+
+                
             }
             else if (grabdecisionofStory === "B") {
-                setResultText(choosedAnswer.decResultBtextline)
+
+                if(checkCondition(choosedAnswer.decConditionA)) {
+                    upgradeHero(choosedAnswer.decResultB)
+                    setResultText(choosedAnswer.decResultBtextline)
+
+                }
+                else {
+                    upgradeHero(choosedAnswer.decFalseResultB)
+                    setResultText(choosedAnswer.decFalseResultBTextline)
+                }
+
+
+                
+                
             }
             else if (grabdecisionofStory === "C") {
-                setResultText(choosedAnswer.decResultCtextline)
+
+                if(checkCondition(choosedAnswer.decConditionA)) {
+                    upgradeHero(choosedAnswer.decResultC)
+                    setResultText(choosedAnswer.decResultCtextline)
+                }
+                else {
+                    upgradeHero(choosedAnswer.decFalseResultC)
+                    setResultText(choosedAnswer.decFalseResultCTextline)
+                }
+                
+               
+                
             }
+
+            
             
 
         
@@ -250,12 +330,14 @@ function ChatGame() {
 
 
     function nextStory() {
-
+        console.error('nextStory')
+      
         
 
         // setting game  and count story
-        setGame(fakeAnswers[actualStory + 1]);
         CountStory(actualStory+1);
+        setGame(fakeAnswers[actualStory + 1]);
+       
 
         // setting answers of the next part of story
         setAnswers({
@@ -266,42 +348,63 @@ function ChatGame() {
         
         // set story
         setStory(fakeAnswers[actualStory +1].story)
-        
+
     }
 
     
-    // 1. Make punish system with const penalty or temporary
     // 2. Think how decision would work
-    // 3. Make prettier css styles
-    // 4. checkDecision function
     // 5. write more stories
-    // 6. more RWD
     // 7. function which one taking u to next story in mainLine
+    // 8. make animation of fading
 
-
+    console.log(upgrades)
+    console.log(hero)
 
     return (
         <div>
             <main>
                 
 
-                    <div className="communicate">{alert}</div>  
                     
-                    <div className="stats">{"att:"+hero.stats.attack} {"def:"+hero.stats.deffense}, {"coin:"+hero.stats.coin},{"hp:"+hero.stats.healthPoints}</div>
                     
-                
-                
+                    <div className="stats">
 
+                        <IconContext.Provider value={{className: "icon", }}>
+                             <GiBroadsword />  
+                        </IconContext.Provider>
+                        {hero.stats.attack}
+
+                        <IconContext.Provider value={{className: "icon", }}>
+                             <GiShield />  
+                        </IconContext.Provider>
+                        {hero.stats.deffense+ " "}
+
+                        <IconContext.Provider value={{className: "icon", }}>
+                             <GiTwoCoins />  
+                        </IconContext.Provider>
+                        {hero.stats.coin}
+
+                        <IconContext.Provider value={{className: "icon", }}>
+                             <GiHearts />  
+                        </IconContext.Provider>
+                        {hero.stats.healthPoints} 
+                    </div>
+                    
+          
+               
+               
+                <div className="communicate">{alert}</div>  
                 <div className="story">
 
                 <p> {decResultText} </p> 
 
-                    {story}
+                  <p>{story} </p>  
 
-      
+     
                 </div>
-        
-                <div className="answers">answers
+
+             
+                <div className="answers">
                     <ul>
                         <li onClick={() => makeDecision("A")}>A: {answers.A}</li>
                         <li onClick={() => makeDecision("B")}>B: {answers.B}</li>
