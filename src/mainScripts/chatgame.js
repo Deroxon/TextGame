@@ -4,7 +4,10 @@ import {GiTwoCoins, GiBroadsword, GiShield, GiHearts} from "react-icons/gi";
 import { IconContext } from "react-icons";
 
 
+
 function ChatGame() {
+
+    console.log(fakeAnswers)
 
     const [story, setStory] = useState('');
     const [decResultText, setResultText] = useState('') 
@@ -35,6 +38,8 @@ function ChatGame() {
     useEffect( () => {
         // if we go to nextStory we sum Heroes stats and display it
         sumHeroUpgrades();
+        // clearing array of upgrades
+        setUpgrades([])
     }, [actualStory])
 
 
@@ -55,17 +60,17 @@ function ChatGame() {
                 // upgrade hero if yes
                 console.log('upgrading A hero')
                 upgradeHero(game.A.stats);
+                setAlert(game.A.storyline);
             } else {
                 // punish, if there is any punish
-                console.log(game.A.penalty)
                 upgradeHero(game.A.penalty)
-                console.log('use penalty')
+                setAlert(game.A.penaltyStoryline);
             }
             checkiFDecision(param) // A
 
            
         
-            setAlert(game.A.storyline);
+            
 
         } 
         
@@ -73,15 +78,16 @@ function ChatGame() {
             
             if(checkCondition(game.B.condition)) {
                 upgradeHero(game.B.stats);
+                setAlert(game.B.storyline);
             } else {
                 upgradeHero(game.B.penalty)
-                console.log('use penalty')
+                setAlert(game.B.penaltyStoryline);
             }
             checkiFDecision(param) 
 
            
            
-            setAlert(game.B.storyline);
+            
 
         }
 
@@ -89,15 +95,17 @@ function ChatGame() {
 
             if(checkCondition(game.C.condition)) {
                 upgradeHero(game.C.stats);
+                setAlert(game.C.storyline);
             } else {
                 console.log('use penalty')
                 upgradeHero(game.C.penalty)
+                setAlert(game.C.penaltyStoryline);
             }
             checkiFDecision(param) 
 
 
 
-            setAlert(game.C.storyline);
+            
          
         }
         // setting result of player answer and making new story
@@ -348,13 +356,13 @@ function ChatGame() {
         
         // set story
         setStory(fakeAnswers[actualStory +1].story)
+        
 
     }
 
     
     // 2. Think how decision would work
     // 5. write more stories
-    // 7. function which one taking u to next story in mainLine
     // 8. make animation of fading
 
     console.log(upgrades)
