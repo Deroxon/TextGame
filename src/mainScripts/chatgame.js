@@ -1,20 +1,25 @@
 import React, {useState, useEffect} from "react";
 import fakeAnswers from "../fakeData/fakeAnswers"
-import {GiTwoCoins, GiBroadsword, GiShield, GiHearts} from "react-icons/gi";
+import {GiTwoCoins, GiBroadsword, GiShield, GiHearts, GiShatteredHeart} from "react-icons/gi";
 import { IconContext } from "react-icons";
+import CheckPlayerStatus from "./scripts/checkPlayerStatus"
 
 
 
 function ChatGame() {
 
+
+    
+
     console.log(fakeAnswers)
 
+    
     const [story, setStory] = useState('');
     const [decResultText, setResultText] = useState('') 
     const [answers, setAnswers] = useState({A: '', B: '', C: ''})
     const [game, setGame] = useState();
     const [actualStory, CountStory] = useState(0);
-    const [alert, setAlert] = useState("alert");
+    const [alert, setAlert] = useState("");
     const [upgrades, setUpgrades] = useState([]);
     const [hero, setHeroStats] = useState({stats: {
         attack: 1,
@@ -25,7 +30,7 @@ function ChatGame() {
     backpack : [], 
     })
 
-   
+    
 
     // mount first story, answers and game options
     useEffect( ()=> {
@@ -40,9 +45,27 @@ function ChatGame() {
         sumHeroUpgrades();
         // clearing array of upgrades
         setUpgrades([])
+
     }, [actualStory])
 
 
+    // lifecycle checking if player is alive
+    useEffect( () => {
+            // checking player health and respond true or false
+            let PlayerStaus = CheckPlayerStatus(hero)
+    
+            if(!PlayerStaus) {
+                let Rbutton = <button className='restart' onClick={() => window.location.reload()}>Restart Game</button>
+                setStory(`You died on day ${actualStory+1} `, )
+               
+                setAnswers({
+                    A: Rbutton,
+                    B: Rbutton,
+                    C: Rbutton
+                })
+                setResultText('')
+            }
+    }, [hero.stats.healthPoints])
  
 
   
@@ -57,10 +80,14 @@ function ChatGame() {
             // checking condition if the player fullfill it
             
             if(checkCondition(game.A.condition)) {
+
                 // upgrade hero if yes
                 console.log('upgrading A hero')
                 upgradeHero(game.A.stats);
                 setAlert(game.A.storyline);
+
+                // if we made a condition we need to sign in result condition that is true
+                fakeAnswers[actualStory].resultCondition = true;
             } else {
                 // punish, if there is any punish
                 upgradeHero(game.A.penalty)
@@ -77,8 +104,11 @@ function ChatGame() {
         else if (param === 'B') {
             
             if(checkCondition(game.B.condition)) {
+
                 upgradeHero(game.B.stats);
                 setAlert(game.B.storyline);
+
+                fakeAnswers[actualStory].resultCondition = true;
             } else {
                 upgradeHero(game.B.penalty)
                 setAlert(game.B.penaltyStoryline);
@@ -94,20 +124,19 @@ function ChatGame() {
         else if (param === 'C') {
 
             if(checkCondition(game.C.condition)) {
+
                 upgradeHero(game.C.stats);
                 setAlert(game.C.storyline);
+
+                fakeAnswers[actualStory].resultCondition = true;
             } else {
-                console.log('use penalty')
                 upgradeHero(game.C.penalty)
                 setAlert(game.C.penaltyStoryline);
             }
             checkiFDecision(param) 
-
-
-
-            
-         
         }
+
+
         // setting result of player answer and making new story
         fakeAnswers[actualStory].result = param;
         nextStory();
@@ -127,7 +156,7 @@ function ChatGame() {
         
 
         // destrukturyzacja w obiekcie hero, obiektu stats
-        let {healthPoints, attack, deffense, coins } = hero.stats;
+        let {healthPoints, attack, deffense, coin } = hero.stats;
 
         switch (takeWhat) {
 
@@ -163,7 +192,7 @@ function ChatGame() {
 
             //coin
             case 'co': {
-                if(coins >= takeCon) {
+                if(coin >= takeCon) {
                     return true;
                 } else {
                     return false;
@@ -278,60 +307,56 @@ function ChatGame() {
 
         // displaying choosedAnswerResult and upgrading hero if the hero is making condition or upgrade him like penalty if dont
         
-            if(grabdecisionofStory === "A") {
+        // we checking if in this story we are succes to make conditions.
+        if(fakeAnswers[checkdec].resultCondition) {
 
-                    if(checkCondition(choosedAnswer.decConditionA) ) {
-                        upgradeHero(choosedAnswer.decResultA)
-                        setResultText(choosedAnswer.decResultAtextline)
-                    }
-                    else {
-                        upgradeHero(choosedAnswer.decFalseResultA)
-                        setResultText(choosedAnswer.decFalseResultATextline)
-                    }
+                    if(grabdecisionofStory === "A") {
+
+                        if(checkCondition(choosedAnswer.decConditionA) ) {
+                            upgradeHero(choosedAnswer.decResultA)
+                            setResultText(choosedAnswer.decResultAtextline)
+                        }
+                        else {
+                            upgradeHero(choosedAnswer.decFalseResultA)
+                            setResultText(choosedAnswer.decFalseResultATextline)
+                        }
 
                     
-                   
+                }
+                else if (grabdecisionofStory === "B") {
 
-                
-            }
-            else if (grabdecisionofStory === "B") {
+                    if(checkCondition(choosedAnswer.decConditionA)) {
+                        upgradeHero(choosedAnswer.decResultB)
+                        setResultText(choosedAnswer.decResultBtextline)
 
-                if(checkCondition(choosedAnswer.decConditionA)) {
-                    upgradeHero(choosedAnswer.decResultB)
-                    setResultText(choosedAnswer.decResultBtextline)
+                    }
+                    else {
+                        upgradeHero(choosedAnswer.decFalseResultB)
+                        setResultText(choosedAnswer.decFalseResultBTextline)
+                    }
 
                 }
-                else {
-                    upgradeHero(choosedAnswer.decFalseResultB)
-                    setResultText(choosedAnswer.decFalseResultBTextline)
+                else if (grabdecisionofStory === "C") {
+
+                    if(checkCondition(choosedAnswer.decConditionA)) {
+                        upgradeHero(choosedAnswer.decResultC)
+                        setResultText(choosedAnswer.decResultCtextline)
+                    }
+                    else {
+                        upgradeHero(choosedAnswer.decFalseResultC)
+                        setResultText(choosedAnswer.decFalseResultCTextline)
+                    }
+                    
+                
                 }
 
-
-                
-                
-            }
-            else if (grabdecisionofStory === "C") {
-
-                if(checkCondition(choosedAnswer.decConditionA)) {
-                    upgradeHero(choosedAnswer.decResultC)
-                    setResultText(choosedAnswer.decResultCtextline)
-                }
-                else {
-                    upgradeHero(choosedAnswer.decFalseResultC)
-                    setResultText(choosedAnswer.decFalseResultCTextline)
-                }
-                
-               
-                
-            }
-
-            
-            
-
+        }
+        // if we dont succes in story what we was before, doesnt make condition, that makes the other condition is not considered.
+        else {
+            setResultText('');
+        }
         
-
-
-            
+      
 
         
     }
@@ -339,8 +364,6 @@ function ChatGame() {
 
     function nextStory() {
         console.error('nextStory')
-      
-        
 
         // setting game  and count story
         CountStory(actualStory+1);
@@ -353,10 +376,9 @@ function ChatGame() {
             B: fakeAnswers[actualStory +1].B.content, 
             C: fakeAnswers[actualStory +1].C.content, 
         })
-        
+
         // set story
         setStory(fakeAnswers[actualStory +1].story)
-        
 
     }
 
@@ -365,8 +387,21 @@ function ChatGame() {
     // 5. write more stories
     // 8. make animation of fading
 
-    console.log(upgrades)
-    console.log(hero)
+
+    // little bit of design on low health
+    let iconHealth = '';
+    if(hero.stats.healthPoints > 1) {
+        iconHealth = <IconContext.Provider value={{className: "icon", }}>
+                        <GiHearts />  
+                    </IconContext.Provider>;
+    }
+    else {
+        iconHealth = <IconContext.Provider value={{className: "icon", }}>
+                        <GiShatteredHeart />  
+                    </IconContext.Provider>;
+    }
+
+
 
     return (
         <div>
@@ -392,9 +427,7 @@ function ChatGame() {
                         </IconContext.Provider>
                         {hero.stats.coin}
 
-                        <IconContext.Provider value={{className: "icon", }}>
-                             <GiHearts />  
-                        </IconContext.Provider>
+                        {iconHealth}
                         {hero.stats.healthPoints} 
                     </div>
                     
