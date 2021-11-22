@@ -15,6 +15,13 @@ function answerA() {
         'Drink Original Potion',
         'Go forward',
         'Atack Them',
+        'Tell truth',
+        'Let him speak',
+        'Accept mision',
+        'leave the dog',
+        'knee',
+        'escape',
+
 
     ]
     let tableofStats = [
@@ -32,6 +39,12 @@ function answerA() {
         {hp: 0, att: 1, def: 2, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 1, coin: 5},
+        {hp: 1, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: -1, def: -1, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     let tableofStoryline = [
         'You choosed short sword which one is making you stronger, you get 1 attack point',
@@ -62,7 +75,17 @@ function answerA() {
 
         'The fight was quickly, the man who was speaking first was trying to thrust with his sword but you cut him in half. The man from right with giant axe charge on you and make a sweeping strike, you dodged it and make counter, which one knocked down him, last man just escape, when he saw his partners on the ground.From the leader you picked up 5 coins, and took his shield which one grat\'s you 1 armor more ',
 
+        ' \" I\'m from small village Opros, but i camed from Versola, on my way i met some bad people, thanks for helping me.  \" Young man told \"Opros.. let me bring my grandpa, he know you and he will talk with you about Opros... \" ',
 
+        'The old man is still take a breath and start talking:',
+
+        'You are accepting the mission, old man seems satisfactioned, and wishing u good luck. \"Last advice for you is that, that orcs are powerful and most common, they almost all have 6 attack, single goblin has 2 attack, ogres are strong and they have 15attack \"  ',
+
+        'You decided to leave the dog for his own destiny.',
+
+        'You attacked the knee, the cut was excelent, but the Orc is still standing, he hitted u with his blade, the cut was shallow but it weakened you. You lost 1armor and 1 attack. ',
+
+        'You escaped from the Orc, he was too slow to catch you up. ',
 
     ]
     let tableofPenaltyStoryline = [
@@ -92,6 +115,15 @@ function answerA() {
 
         'The fight was quickly, the man who was speaking first was trying to thrust with his sword but you deffend yourself, unexpectedly the second came from behind and knock you up. You lost 4 coins, 2 healthPoints and they steal ur part of armor, which one is taking from u 2 deffense points ',
 
+        '',
+        '',
+        '',
+        '',
+
+        'You attacked the knee, the cut was too shallow, Orc start to counter he hitted u with his blade, the cut was painful, you feel the weakened. You lost 2 attack points, 1 healthPoint and 1 deffense. ',
+
+        '',
+
     ]
     let tableofCondition = [
         'hp1',
@@ -108,6 +140,12 @@ function answerA() {
         'hp2',
         'hp1',
         'at7',
+        'hp1',
+        'hp1',
+        'hp1',
+        'hp1',
+        'at5',
+        'hp1',
     ]
     let tableofPenalty = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -124,6 +162,12 @@ function answerA() {
         {hp: -1, att: 0, def: 1, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: -2, att: 0, def: -2, coin: -4},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: -1, att: -2, def: -1, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     let tableofCheckDec = [
         '',
@@ -138,6 +182,12 @@ function answerA() {
         '',
         '',
         '5',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
         '',
         '',
     ]
@@ -159,6 +209,12 @@ function answerA() {
         'hp1',
         '',
         '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
 
     ]
     let decResultA = [
@@ -176,9 +232,21 @@ function answerA() {
         {hp: 1, att: 1, def: 1, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultA = [
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -210,11 +278,23 @@ function answerA() {
         '\"You said you know about this place from the seller from city.  I\'m really glad to hear that, take this necklage, he will help u later\". The necklage emits small power, you gained 1 atttack, 1 deffense, 1 healthPoint ',
         '',
         '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
     ]
     
     let decFalseResultATextline = [
         '',
         'Snake was too strong and too fast for you, you lost the fight, even with the sword',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
         '',
         '',
         '',
@@ -246,6 +326,12 @@ function answerA() {
         'hp1',
         '',
         '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
     ]
     let decResultB = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -261,9 +347,21 @@ function answerA() {
         {hp: 0, att: 0, def: 1, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultB = [
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -295,11 +393,23 @@ function answerA() {
         '\"You said you know about this place from the seller from city.  I\'m really glad to hear that, take this ring of deffender, he will help u later\". The ring seems protect you. You gained 1 armor.',
         '',
         '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
     ]
     
     let decFalseResultBTextline = [
         '',
         'Armor is not protecting u of the damage',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
         '',
         '',
         '',
@@ -332,10 +442,22 @@ function answerA() {
         '',
         '',
         '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
     ]
     let decResultC = [
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -365,6 +487,12 @@ function answerA() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decResultCtextline = [
@@ -382,11 +510,23 @@ function answerA() {
         '',
         '',
         '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
     ]
     
     let decFalseResultCTextline = [
         '',
         'Shield is protecting you from the damage but the snake pulls it out and you lose your shield. You lost 1 deffense',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
         '',
         '',
         '',

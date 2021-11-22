@@ -227,6 +227,12 @@ function ChatGame() {
             sumHealthPoints = sumHealthPoints + upgrades[i].hp
             sumCoins = sumCoins + upgrades[i].coin
         }
+        if(sumCoins < 0) {
+            sumCoins = 0;
+        }
+        if(sumDeffense < 0) {
+            sumDeffense = 0;
+        }
 
         
         

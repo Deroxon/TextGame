@@ -1,5 +1,5 @@
 let story = [
-    "You woke up in small village named Opros, in the Kingdom of Renor. You came from poor family, but recently in the kingdom there are increased attacks from monsters, you decide to change something in ur life and go to dangerously adventure, your friend the blacksmith offer you one item which one could help you. Choose Wisely",
+    "You woke up in small village named Opros, in the Kingdom of Renor. You came from poor family, but recently in the kingdom there are increased attacks from monsters. You dont remeber your past,  blacksmith offer you one item which one could help you. Choose Wisely",
 
     "Your next steps was going to city Versola, wherein you can get more knowledge about monsters who attacking this kingdom, you went to forest beacuse it was the fastest way to get to the city. The road is quiet, until you get to crossroad, you need to choose way u go.  ",
 
@@ -26,6 +26,20 @@ let story = [
     'After you get out of the cave, you started to moving foward to the west, forest is not dense as it was. In some steps more, you can see old house, and near of it some bushes with blueberries, What you will do?',
 
     'Your adventure continues, your walking a bit so you decide to take a break. There is almost midnight so you decide to sleep. You woke up cause you heared voices of some people coming, you put out the fire, and waiting. But they finded you there are 3 man, which want to rob you. \"We will spare your sad life, but give us your money. \" ',
+
+    'When u walk after the bandits meeting, you felled up from tired. You are in half unconscious, but hearing two voices, \"We can\'t leave him to wolfs, they will tear him apart.\"   \"Okay, okay, just help me to lift him up.\" When u wake up, you was in bed, near you u see a young boy who is cleaning the room.Your wounds have been dressed, you get 1 health Point. The young boy, came to you and ask \"Where are you from? \"',
+
+    'You stand up on the bed and just waiting, the doors are open, you can\'t belive what u see. In front of your eyes you can see this old man who was asking u what is most important in life. \"Do you know me young adventure? Of course you does, beacuse you has been choosed to save Renor, the monsters like orcs, ogres, goblins and much more are regroup on the north border of country. We need your help! "\ ',
+
+    ' \"The reason why you meet me in the forest, was the destiny, Old description of begin of world is talking about hero who is the choosen one, comes to me. Let me introduce myself, i\'m Melzadon the enlightened defender of this country. "\ You heared about this name in stories which your mother was told you everyday. \" I\'m not as powerful as i was 200 years ago, but you need to be ready, beacuse someday monster will flood the kingdom. Go to North and look for allies and grow up in strength. There is no time to rest, get out of this bed and go, your country need\'s you  \"    ',
+
+    'After your decision, the old man told you that u are in Kelm, small village 3 days way from Versola. Your next target is Termon, city of industry. You decide to go the safest spot on your way, after few hours later you spot a injury dog, the dog suffer, and u have to choose to end suffer of the dog, sacrifice your 2 health points to save dog, in change some of your life or leave dog to suffer.',
+
+    'The situation near the dog was hard, but now in your way you see the armored orc, he looks like he lost himself. Few seconds later he spots you, and after that he start to charge on you, you have to counterattack him, the week spots look like knee, neck, and under stomach, choose where you want to hit',
+
+    'After the hard trade of hits, you both are exhausted, the orc prepare to strong attack, you have possibilty to escape, but u can use fast attack to knock him down, or block the attack and counter it, decision is in ur hands.',
+    
+
 
 
 
