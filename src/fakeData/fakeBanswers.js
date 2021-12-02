@@ -21,6 +21,7 @@ function answerB() {
         'End his suffer',
         'Neck',
         'Block the attack and counter',
+        'Search caravan',
     ]
     let tableofStats = [
         {hp: 0, att: 0, def: 1, coin: 0},
@@ -43,6 +44,7 @@ function answerB() {
         {hp: -1, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 2},
+        {hp: 0, att: 0, def: 0, coin: 3},
     ]
     let tableofStoryline = [
         'You choosed armor which one is making you safer, you get 1 deffense point',
@@ -85,6 +87,8 @@ function answerB() {
 
         'You blocked the attack, from orc and counter it with fast light attack, the orc seems hurted, your attack cutted his bag and 2 coins dropped out',
 
+        'You searched the caravan and find human bones, next to which it lay the moneybag with 3 coins. ',
+
 
     ]
     let tableofPenaltyStoryline = [
@@ -118,6 +122,7 @@ function answerB() {
         'You attacked the neck, the orc dodged the attack and hitted u with his fist in stomach, what caused you flew into the tree. You lost 3health Points',
 
         'You didnt block the attack, he attacked u with his full power. You lost 3 health Points.',
+        '',
     ]
     
     let tableofCondition = [
@@ -141,7 +146,7 @@ function answerB() {
         'de6',
         'at7',
         'de5',
-
+        'hp1',
     ]
     let tableofPenalty = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -164,6 +169,7 @@ function answerB() {
         {hp: -1, att: 0, def: -1, coin: 0},
         {hp: -3, att: 0, def: 0, coin: 0},
         {hp: -3, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     let tableofCheckDec = [
         '',
@@ -186,6 +192,7 @@ function answerB() {
         '',
         '',
         '19',
+        '',
     ]
     
     // A decision Condition
@@ -211,6 +218,7 @@ function answerB() {
         '',
         '',
         'de5',
+        '',
 
     ]
     let decResultA = [
@@ -234,9 +242,11 @@ function answerB() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 3, def: 3, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultA = [
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -280,6 +290,7 @@ function answerB() {
         '',
         '',
         'Beacuse you slow him down earlier his bleed cause that\'s he fell down. You got his Shield, blade and health Potion. You got 3 attack, 3 deffense and 1 healthPoint ',
+        '',
     ]
     
     let decFalseResultATextline = [
@@ -303,6 +314,7 @@ function answerB() {
         '',
         '',
         'The orc escaped from u, cause u couldnt kill him, he realized that he lost the fight and escaped.  ',
+        '',
     ]
     
     // B decision condition
@@ -328,6 +340,7 @@ function answerB() {
         '',
         '',
         'at5',
+        '',
     ]
     let decResultB = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -350,9 +363,11 @@ function answerB() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 3, def: 3, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultB = [
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -396,6 +411,7 @@ function answerB() {
         '',
         '',
         'Beacuse you cut him in neck earlier he fell down now. You got his Shield, blade and health Potion. You got 3 attack, 3 deffense and 1 healthPoint ',
+        '',
     ]
     
     let decFalseResultBTextline = [
@@ -419,6 +435,7 @@ function answerB() {
         '',
         '',
         'The orc escaped from u, cause u couldnt he fell he was losing and u didn\'t finish him. ',
+        '',
     ]
     
     // C decision Condition
@@ -445,6 +462,7 @@ function answerB() {
         '',
         '',
         'at5',
+        '',
     ]
     let decResultC = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -467,9 +485,11 @@ function answerB() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 3, def: 3, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultC = [
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -513,6 +533,7 @@ function answerB() {
         '',
         '',
         'Beacuse you hitted him in stomach his bleed cause that\'s he fell down. You got his Shield, blade and health Potion. You got 3 attack, 3 deffense and 1 healthPoint ',
+        '',
     ]
     
     let decFalseResultCTextline = [
@@ -536,6 +557,7 @@ function answerB() {
         '',
         '',
         'The orc escaped from u, cause u couldnt he fell he was losing and u didn\'t finish him.  ',
+        '',
     ]
     
     let tableAAAAA = []

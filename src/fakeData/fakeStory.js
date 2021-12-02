@@ -38,6 +38,10 @@ let story = [
     'The situation near the dog was hard, but now in your way you see the armored orc, he looks like he lost himself. Few seconds later he spots you, and after that he start to charge on you, you have to counterattack him, the week spots look like knee, neck, and under stomach, choose where you want to hit',
 
     'After the hard trade of hits, you both are exhausted, the orc prepare to strong attack, you have possibilty to escape, but u can use fast attack to knock him down, or block the attack and counter it, decision is in ur hands.',
+
+    'The journey continue, you spot the sign with image of monster similiar to orc inscription: \" The ogre are walking around the nearby rocks. Be carefoul. \" You decide to still walk on north, the terrain seems more bumpy, the inequalities are much more than, you was in your village. On your way you can see wounded deer, the wound isn\'t deep, Near of the deer is destroyed merchant caravan you can also search it, or just take a rest for a while and read the old book from your village. ',
+
+    
     
 
 

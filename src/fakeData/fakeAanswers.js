@@ -21,6 +21,7 @@ function answerA() {
         'leave the dog',
         'knee',
         'escape',
+        'Bandage wound deer',
 
 
     ]
@@ -44,6 +45,7 @@ function answerA() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: -1, def: -1, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
     ]
     let tableofStoryline = [
@@ -87,6 +89,8 @@ function answerA() {
 
         'You escaped from the Orc, he was too slow to catch you up. ',
 
+        'You helped the deer, after few hours the animal seems fine to walk, he starring at you and his eyes express the \"thank you \" '
+
     ]
     let tableofPenaltyStoryline = [
         '',
@@ -123,6 +127,7 @@ function answerA() {
         'You attacked the knee, the cut was too shallow, Orc start to counter he hitted u with his blade, the cut was painful, you feel the weakened. You lost 2 attack points, 1 healthPoint and 1 deffense. ',
 
         '',
+        '',
 
     ]
     let tableofCondition = [
@@ -146,6 +151,7 @@ function answerA() {
         'hp1',
         'at5',
         'hp1',
+        'hp1',
     ]
     let tableofPenalty = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -168,6 +174,7 @@ function answerA() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: -1, att: -2, def: -1, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     let tableofCheckDec = [
         '',
@@ -182,6 +189,7 @@ function answerA() {
         '',
         '',
         '5',
+        '',
         '',
         '',
         '',
@@ -215,6 +223,7 @@ function answerA() {
         '',
         '',
         '',
+        '',
 
     ]
     let decResultA = [
@@ -238,9 +247,11 @@ function answerA() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultA = [
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -284,11 +295,13 @@ function answerA() {
         '',
         '',
         '',
+        '',
     ]
     
     let decFalseResultATextline = [
         '',
         'Snake was too strong and too fast for you, you lost the fight, even with the sword',
+        '',
         '',
         '',
         '',
@@ -332,6 +345,7 @@ function answerA() {
         '',
         '',
         '',
+        '',
     ]
     let decResultB = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -353,9 +367,11 @@ function answerA() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultB = [
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -399,11 +415,13 @@ function answerA() {
         '',
         '',
         '',
+        '',
     ]
     
     let decFalseResultBTextline = [
         '',
         'Armor is not protecting u of the damage',
+        '',
         '',
         '',
         '',
@@ -448,10 +466,12 @@ function answerA() {
         '',
         '',
         '',
+        '',
     ]
     let decResultC = [
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -493,6 +513,7 @@ function answerA() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decResultCtextline = [
@@ -516,11 +537,13 @@ function answerA() {
         '',
         '',
         '',
+        '',
     ]
     
     let decFalseResultCTextline = [
         '',
         'Shield is protecting you from the damage but the snake pulls it out and you lose your shield. You lost 1 deffense',
+        '',
         '',
         '',
         '',

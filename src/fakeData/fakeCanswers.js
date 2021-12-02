@@ -21,6 +21,7 @@ function answerC() {
         'Help the dog',
         'Attack under the stomach',
         'Use fast attack',
+        'Read the book',
 
     ]
     let tableofStats = [
@@ -42,6 +43,7 @@ function answerC() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: -2, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
     ]
@@ -86,6 +88,8 @@ function answerC() {
 
         'The fast attack was what u neeeded, the orc couldnt make his powerful attack.',
 
+        'The book is talking about old race of guardian of the forest, its dryad\'s.The magic creatures which one\'s take care of natural forest and protect them before destroyed. One man meet dryad, she ask him, why people are so destructible to nature. The main character said \"Beacuse it\'s in human nature to finally destroy something natural.\" The dryad left him, she appreciate his honesty. ',
+
 
     ]
     let tableofPenaltyStoryline = [
@@ -113,6 +117,7 @@ function answerC() {
         'You missed the thrust, and the armor blocked your attack, after that the orc cut you in stomach. You lost 2 health Points and some of your armor has been destroyed. You lost 1 armor',
 
         'The attack was\'t fast enought, he knocked u and took ur 3 healthPoints. Then he escaped. '
+        '',
 
     ]
     let tableofCondition = [
@@ -136,6 +141,7 @@ function answerC() {
         'hp3',
         'at6',
         'at5',
+        'hp1',
 
     ]
     let tableofPenalty = [
@@ -159,6 +165,7 @@ function answerC() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: -2, att: 0, def: -1, coin: 0},
         {hp: -3, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
 
     ]
     let tableofCheckDec = [
@@ -181,7 +188,8 @@ function answerC() {
         '',
         '',
         '',
-        '19'
+        '19',
+        '',
     ]
     
     // A decision Condition
@@ -207,6 +215,7 @@ function answerC() {
         '',
         '',
         'de5',
+        '',
     ]
     let decResultA = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -229,9 +238,11 @@ function answerC() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 3, def: 3, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultA = [
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -275,6 +286,7 @@ function answerC() {
         '',
         '',
         'Beacuse you slow him down earlier his bleed cause that\'s he fell down. You got his Shield, blade and health Potion. You got 3 attack, 3 deffense and 1 healthPoint ',
+        '',
 
         
     ]
@@ -300,6 +312,7 @@ function answerC() {
         '',
         '',
         'The orc escaped from u, cause u couldnt kill him, he realized that he lost the fight and escaped.  ',
+        '',
     ]
     
     // B decision condition
@@ -324,6 +337,7 @@ function answerC() {
         '',
         '',
         'hp1',
+        '',
     ]
     let decResultB = [
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -346,6 +360,7 @@ function answerC() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 3, def: 3, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultB = [
@@ -363,6 +378,7 @@ function answerC() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: -1, att: 0, def: 0, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -392,6 +408,7 @@ function answerC() {
         '',
         '',
         'Beacuse you cut him in neck earlier he fell down now. You got his Shield, blade and health Potion. You got 3 attack, 3 deffense and 1 healthPoint ',
+        '',
 
     ]
     
@@ -416,6 +433,7 @@ function answerC() {
         '',
         '',
         'The orc escaped from u, cause u couldnt he fell he was losing and u didn\'t finish him. ',
+        '',
         
     ]
     
@@ -443,6 +461,7 @@ function answerC() {
         '',
         '',
         'hp1',
+        '',
 
     ]
     let decResultC = [
@@ -466,9 +485,11 @@ function answerC() {
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 1, att: 3, def: 3, coin: 0},
+        {hp: 0, att: 0, def: 0, coin: 0},
     ]
     
     let decFalseResultC = [
+        {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
         {hp: 0, att: 0, def: 0, coin: 0},
@@ -512,6 +533,7 @@ function answerC() {
         '',
         '',
         'Beacuse you hitted him in stomach his bleed cause that\'s he fell down. You got his Shield, blade and health Potion. You got 3 attack, 3 deffense and 1 healthPoint ',
+        '',
     ]
     
     let decFalseResultCTextline = [
@@ -535,6 +557,7 @@ function answerC() {
         '',
         '',
         'The orc escaped from u, cause u couldnt he fell he was losing and u didn\'t finish him.  ',
+        '',
     ]
     
     let tableAAAAA = []
